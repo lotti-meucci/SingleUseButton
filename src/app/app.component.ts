@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SingleUseButton';
+  
+  onClick(): void {
+    alert("Clicked!");
+  }
 }

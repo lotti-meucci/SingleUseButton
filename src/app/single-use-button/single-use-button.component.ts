@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-single-use-button',
@@ -8,9 +8,11 @@ import { Component, Input } from '@angular/core';
 export class SingleUseButtonComponent {
   @Input() content = "";
   @Input() onClickDisable = false;
-  clicked = false;
+  @Output() click = new EventEmitter();
+  isDisabled = false;
 
   onClick(): void {
-    this.clicked = this.onClickDisable;
+    this.isDisabled = this.onClickDisable;
+    this.click.emit();
   }
 }
